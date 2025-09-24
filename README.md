@@ -1,5 +1,3 @@
-# k8s-voting-app
-
 # Kubernetes Voting App
 
 This repo contains the **Example Voting App** deployed on Kubernetes, with:
