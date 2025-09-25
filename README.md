@@ -152,8 +152,8 @@ Since we are using custom hostnames (`vote.local` and `result.local`), you need 
 
 3.  **Access the Apps:**
 
-      * **Voting Frontend**: Access via `http://vote.local:$NODE_PORT/`
-      * **Results Frontend**: Access via `http://result.local:$NODE_PORT/`
+      * **Voting Frontend**: Access via `http://vote.local`
+      * **Results Frontend**: Access via `http://result.local`
 
     > **Note**: Because we used a self-signed certificate, your browser will show a security warning. You can safely proceed past the warning to view the site. We use `http` here because the ingress is configured with `nginx.ingress.kubernetes.io/ssl-redirect: "false"`.
 
@@ -211,13 +211,6 @@ kubernetes-voting-app/
     └── 64-backends-worker-NP.yaml
 ```
 
-### Deployment Command
-
-The deployment command remains simple and clear:
-
-```bash
-kubectl apply -f manifests/
-```
 -----
 
 ## 🧹 Cleanup
