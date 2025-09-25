@@ -127,22 +127,26 @@ Since we are using custom hostnames (`vote.local` and `result.local`), you need 
     Find the external access port for the NGINX Controller:
 
     ```bash
-    # Get the NodePort for the 'http' port (usually 80, but will be mapped to a high-numbered port)
-    NODE_PORT=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath="{.spec.ports[?(@.name=='http')].nodePort}")
+    # Get the InternalIP of the Kind control plane node
+NODE_IP=$(kubectl get nodes voting-cluster-control-plane -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
+
+# Display the result to verify
+echo "Extracted Node IP: $NODE_IP"
 
     # For kind, the cluster is accessed via the Docker container's IP, but usually, 'localhost' works
-    echo "Access Port: $NODE_PORT"
     ```
 
 2.  **Update your Hosts File:**
 
-    You must modify your local machine's `/etc/hosts` file (or `C:\Windows\System32\drivers\etc\hosts` on Windows) to map the custom domains to `127.0.0.1`.
+    You must modify your local machine's `/etc/hosts` file (or `C:\Windows\System32\drivers\etc\hosts` on Windows) to map the custom domains to `127.0.0.1` or to the container's IP Address.
 
     Add the following lines:
 
-    ```text
-    127.0.0.1  vote.local
-    127.0.0.1  result.local
+# This command appends the new entries to /etc/hosts, 
+    # using the IP retrieved from kubectl.
+    ```bash
+    echo "$NODE_IP vote.local" | sudo tee -a /etc/hosts
+      echo "$NODE_IP result.local" | sudo tee -a /etc/hosts
     ```
 
 3.  **Access the Apps:**
