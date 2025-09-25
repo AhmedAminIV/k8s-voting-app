@@ -128,10 +128,11 @@ Since we are using custom hostnames (`vote.local` and `result.local`), you need 
 
     ```bash
     # Get the InternalIP of the Kind control plane node
-NODE_IP=$(kubectl get nodes voting-cluster-control-plane -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
+    NODE_IP=$(kubectl get nodes voting-cluster-control-plane -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
 
-# Display the result to verify
-echo "Extracted Node IP: $NODE_IP"
+```
+    # Display the result to verify
+    echo "Extracted Node IP: $NODE_IP"
 
     # For kind, the cluster is accessed via the Docker container's IP, but usually, 'localhost' works
     ```
