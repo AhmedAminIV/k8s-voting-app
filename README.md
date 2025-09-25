@@ -86,7 +86,7 @@ The manifest file `vote-app.yaml` (which should be broken out into smaller files
 kubectl create secret tls vote-local-tls \
   --cert=vote.local.crt \
   --key=vote.local.key \
-  -n my-app --dry-run=client -o yaml | kubectl apply -f -
+  -n my-app --dry-run=client -o yaml > manifests/01-tls-secret.yaml
 ```
 
 > **Note**: This uses a dry-run/apply method to ensure the command doesn't fail if the namespace doesn't exist yet, as the namespace is part of the deployment file.
