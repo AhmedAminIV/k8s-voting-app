@@ -221,10 +221,6 @@ When you're finished, you can delete the `kind` cluster:
 kind delete cluster --name voting-cluster
 ```
 
-```
-```
-
-
 
 ## 📸 Screenshots
 
