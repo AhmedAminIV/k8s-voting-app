@@ -142,10 +142,11 @@ echo "Extracted Node IP: $NODE_IP"
 
     Add the following lines:
 
-# This command appends the new entries to /etc/hosts, 
-    # using the IP retrieved from kubectl.
     ```bash
-    echo "$NODE_IP vote.local" | sudo tee -a /etc/hosts
+    # This command appends the new entries to /etc/hosts, 
+    # using the IP retrieved from kubectl.
+
+      echo "$NODE_IP vote.local" | sudo tee -a /etc/hosts
       echo "$NODE_IP result.local" | sudo tee -a /etc/hosts
     ```
 
