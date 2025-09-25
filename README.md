@@ -54,7 +54,7 @@ The NGINX Ingress Controller is required to route external traffic to the `vote`
 
 ```bash
 # This command applies the standard kind-compatible deployment for the ingress-nginx controller.
-kubectl apply -f [https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml](https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml)
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 ```
 
 **B. Expose the Ingress Service:**
