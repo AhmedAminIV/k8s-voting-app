@@ -4,6 +4,13 @@ This repository provides a complete deployment of the classic **Example Voting A
 
 ---
 
+#### 🗺️ Architecture Diagram
+A visual representation of the microservices and their connections within Kubernetes.
+
+![App architecture](/images%20&%20screenshots/architecture.excalidraw.png)
+
+---
+
 ## 🚀 Features
 
 The application is deployed to the `my-app` namespace and consists of the following components:
@@ -224,8 +231,10 @@ kind delete cluster --name voting-cluster
 
 ## 📸 Screenshots
 
-(Add screenshots from Killercoda browser preview)
-
+![Results Frontend 1](images%20%26%20screenshots/result.jpeg)
+![Results Frontend 2](images%20%26%20screenshots/result2)
+![Voting Frontend 1](images%20%26%20screenshots/vote.jpeg)
+![Voting Frontend 2](images%20%26%20screenshots/vote2)
 ```
 
 ---
