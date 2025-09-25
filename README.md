@@ -95,28 +95,27 @@ kubectl create secret tls vote-local-tls \
 
 ## ⚡ Deployment
 
-The repository uses a single combined file (`vote-app.yaml` in your case) for all application resources. It is highly recommended to split this into individual files as suggested in the **Repo Structure** section below.
+The application configuration is managed by individual YAML files, ordered using numerical prefixes inside the `manifests/` directory to ensure resources are created in the correct sequence (e.g., Namespace before Deployments, etc.).
 
-1.  **Save the manifest**: If your YAML is a single file, save it as `vote-app.yaml` in the root of the repo.
+1.  **Deploy the Application**:
 
-2.  **Deploy the Application**:
+    Apply all the manifests in the directory with a single command:
 
     ```bash
-    kubectl apply -f vote-app.yaml 
-    # OR if you have a structured directory:
-    # kubectl apply -f manifests/ 
+    kubectl apply -f manifests/
     ```
 
-3.  **Verify Deployment**:
+2.  **Verify Deployment**:
 
-    Check that all pods are running and services are up:
+    Check that all pods, services, and other resources have been created successfully in the `my-app` namespace:
 
     ```bash
     kubectl get all -n my-app
+    kubectl get ingress -n my-app
+    kubectl get networkpolicy -n my-app
     ```
 
-    Wait for all Pods to show a `Running` status.
-
+    Wait for all Pods to show a `Running` status before proceeding to access the application.
 -----
 
 ## 🌍 Accessing the Application
