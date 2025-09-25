@@ -82,7 +82,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout vote.local.key -out 
 The manifest file `vote-app.yaml` (which should be broken out into smaller files, as suggested in the **Repo Structure** section below) expects the secret to be named **`vote-local-tls`** in the **`my-app`** namespace.
 
 ```bash
-# The 'my-app' namespace will be created by the main deployment manifest.
+# The 'my-app' namespace will be created by the main deployment manifest. You may want to run this part again after the 'my-app' namespace is created.
 kubectl create secret tls vote-local-tls \
   --cert=vote.local.crt \
   --key=vote.local.key \
