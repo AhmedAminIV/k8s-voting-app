@@ -130,7 +130,6 @@ Since we are using custom hostnames (`vote.local` and `result.local`), you need 
     # Get the InternalIP of the Kind control plane node
     NODE_IP=$(kubectl get nodes voting-cluster-control-plane -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
 
-```
     # Display the result to verify
     echo "Extracted Node IP: $NODE_IP"
 
