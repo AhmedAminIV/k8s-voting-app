@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote-deploy
+  namespace: my-app
+  labels:
+    app: vote
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vote
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: vote
+        tier: frontend
+    spec:
+      containers:
+      - name: vote-app
+        image: dockersamples/examplevotingapp_vote
+        ports:
+        - containerPort: 80
+        env:
+        - name: REDIS_HOST
+          value: "redis"

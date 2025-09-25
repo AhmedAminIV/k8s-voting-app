@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: my-app
+  name: result-deploy
+  labels:
+    app: result
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: result
+        tier: frontend
+    spec:
+      containers:
+      - name: result-app
+        image: dockersamples/examplevotingapp_result
+        ports:
+        - containerPort: 80
+       
