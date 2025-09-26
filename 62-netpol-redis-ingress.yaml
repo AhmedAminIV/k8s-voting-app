@@ -1,22 +1,22 @@
-## Allow result → postgres (port 5432)
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-result-to-postgres
+  name: redis-ingress
   namespace: my-app
 spec:
   podSelector:
     matchLabels:
-      app: db
+      app: redis
   policyTypes:
   - Ingress
   ingress:
   - from:
     - podSelector:
         matchLabels:
-          app: result
-          tier: frontend
+          app: vote
+    - podSelector:
+        matchLabels:
+          app: worker
     ports:
     - protocol: TCP
-      port: 5432
- 
+      port: 6379
